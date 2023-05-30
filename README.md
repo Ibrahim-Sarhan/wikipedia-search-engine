@@ -8,7 +8,7 @@ best of luck.
 
 
 ### The Solution :
-In this repository, I made changes to improve the search functionality. Specifically, I removed the `onkeyup` function from the `index.html` file and added an `addEventListener` function in the `script.js` file instead. Additionally, I created a debounce function for the search input field.
+In this repository, I made changes to improve the search functionality. Specifically, I removed the `onkeyup` event `onkeyup='validateInput(this)'` from the `index.html` file and added an `addEventListener` function in the `script.js` file instead. Additionally, I created a debounce function for the search input field.
 
 The debounce function is implemented as follows:
 
