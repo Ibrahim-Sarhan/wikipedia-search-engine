@@ -1,9 +1,22 @@
 let resultsContainer = document.getElementsByClassName("container")[0]
 
+// Creating the debounce function to execute the " validateInput " function after certain time
+const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+            func.apply(null, args);
+        }, delay)
+    };
+};
+
 const validateInput = (el) => {
     if(el.value === ""){
         resultsContainer.innerHTML = "<p>Type something in the above search input</p>"
-    }else{
+    } else {
         generateResults(el.value, el)
     }
 }
@@ -35,3 +48,7 @@ const generateResults = (searchValue, inputField) => {
         }
     })
 }
+
+const debounceValidateInput = debounce(validateInput, 600);
+
+document.querySelector('input[type="text"]').addEventListener('input', (event) => debounceValidateInput(event.target));
